@@ -76,3 +76,12 @@ Na pré-visualização de cobrança, clique em **Gerar link público Pix**. O si
 **Antes de testar no Firebase:** publique o arquivo `firestore.rules` atualizado. A regra permite que o administrador crie/gerencie links e que qualquer pessoa leia apenas o documento do link público ativo, pelo token. O público não tem permissão de listar links nem acessar dados administrativos.
 
 O QR Code é gerado no navegador por biblioteca carregada via CDN; a página continua oferecendo o código Pix copia-e-cola caso a biblioteca de QR não carregue.
+
+## V1.3.9 — WhatsApp padrão com link público Pix
+
+- O fluxo de cobrança passa a priorizar abrir o WhatsApp com link público da página de pagamento.
+- O administrador/professor escolhe somente o tipo: **Em dia**, **Em atraso** ou **Pix livre**.
+- O sistema gera automaticamente um link individual para o tipo escolhido, antes de abrir o WhatsApp.
+- O código Pix fica na página pública; não é incluído diretamente na mensagem do WhatsApp.
+- A opção **Copiar link Pix** gera e copia o link, sem precisar abrir o WhatsApp.
+- O cache PWA foi atualizado para V1.3.9.
