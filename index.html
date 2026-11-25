@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0b0b"><link rel="manifest" href="manifest.json">
+<title>NÃO PARE | Gestão do Box</title><link rel="stylesheet" href="styles.css">
+</head><body>
+<div class="app-shell">
+<aside class="sidebar"><div class="brand"><img src="assets/logo-nao-pare.jpeg" alt="Logo Não Pare"><div><b>NÃO PARE</b><small>GESTÃO DO BOX</small></div></div>
+<nav><button class="nav active" data-view="dashboard">Dashboard</button><button class="nav" data-view="requests">Matrículas pendentes</button><button class="nav" data-view="students">Alunos</button><button class="nav" data-view="payments">Pagamentos</button><button class="nav" data-view="pix">Configurações Pix</button><button class="nav" data-view="messages">Mensagens</button><button class="nav" data-view="reports">Relatórios</button></nav>
+<div class="side-footer">Estúdio de Alta Performance</div></aside>
+<main><header><button id="menuToggle" class="mobile-menu">☰</button><div><span class="eyebrow">NÃO PARE • ESTÚDIO DE ALTA PERFORMANCE</span><h1 id="pageTitle">Dashboard</h1></div><div class="toolbar"><button id="newStudentBtn" class="primary">+ Novo aluno</button><button id="logoutBtn" class="secondary">Sair</button></div></header>
+<section id="content"></section></main></div>
+<div id="authGate" class="gate"><div class="gate-card"><img src="assets/logo-nao-pare.jpeg" alt="NÃO PARE"><h1>Acesso administrativo</h1><p>Entre com sua conta para acessar a gestão do estúdio.</p><form id="loginForm"><label>E-mail<input type="email" id="loginEmail" required autocomplete="username"></label><label>Senha<input type="password" id="loginPassword" required autocomplete="current-password"></label><button class="primary" type="submit">Entrar</button><div id="loginError" class="gate-error"></div></form><a href="?cadastro=1">Sou aluno — realizar cadastro</a></div></div>
+<div id="publicRegistration" class="public-page hidden">
+  <div class="public-top"><img src="assets/logo-nao-pare.jpeg" alt="Logo NÃO PARE"><div><strong>NÃO PARE</strong><span>ESTÚDIO DE ALTA PERFORMANCE</span></div></div>
+  <div class="public-card">
+    <div class="public-heading"><span class="public-kicker">COMECE SUA EVOLUÇÃO</span><h1>Faça parte do<br><em>NÃO PARE.</em></h1><p>Preencha seus dados para solicitar sua matrícula. Nossa equipe entrará em contato para orientar os próximos passos.</p></div>
+    <form id="publicForm" class="public-form">
+      <label>Nome completo <b>*</b><input name="name" required maxlength="120" autocomplete="name" placeholder="Digite seu nome completo"></label>
+      <label>WhatsApp <b>*</b><input name="phone" required maxlength="16" inputmode="tel" autocomplete="tel" placeholder="(81) 99999-9999"></label>
+      <label>Data de nascimento <span>opcional</span><input name="birthDate" type="date" autocomplete="bday"></label>
+      <label>Observações <span>opcional</span><textarea name="notes" rows="3" maxlength="500" placeholder="Conte algo que considere importante"></textarea></label>
+      <button class="public-submit" type="submit"><span>Enviar solicitação</span><span aria-hidden="true">→</span></button>
+      <div id="publicError" class="gate-error" role="alert"></div>
+    </form>
+    <div id="publicSuccess" class="public-success hidden" role="status"><div class="success-mark">✓</div><h2>Solicitação enviada!</h2><p>Seus dados foram recebidos pelo NÃO PARE. Aguarde nosso contato para confirmar os próximos passos da matrícula.</p><div class="success-foot">NÃO PARE • ESTÚDIO DE ALTA PERFORMANCE</div></div>
+    <p class="public-privacy">Seus dados serão usados somente para contato sobre sua solicitação de matrícula.</p>
+  </div><footer class="public-footer">NÃO PARE <span>•</span> ESTÚDIO DE ALTA PERFORMANCE</footer>
+</div>
+<div id="modal" class="modal hidden"><div class="modal-card"><div class="modal-head"><h2 id="modalTitle">Cadastro</h2><button id="closeModal" class="icon-btn">×</button></div><div id="modalBody"></div></div></div>
+<script type="module" src="app.js"></script>
+</body></html>

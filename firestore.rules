@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null && request.auth.uid == "hZKvrzEeUPMwdJpPGmgS77e8hYL2";
+    }
+    match /adminData/{document} {
+      allow read, write: if isAdmin();
+    }
+    match /registrationRequests/{requestId} {
+      allow create: if request.resource.data.keys().hasOnly(['name','phone','birthDate','notes','status','createdAt'])
+        && request.resource.data.name is string && request.resource.data.name.size() >= 2
+        && request.resource.data.name.size() <= 120
+        && request.resource.data.phone is string && request.resource.data.phone.size() >= 8
+        && request.resource.data.phone.size() <= 30
+        && request.resource.data.status == 'pending'
+        && request.resource.data.notes is string
+        && request.resource.data.notes.size() <= 500;
+      allow read, update, delete: if isAdmin();
+    }
+    match /paymentLinks/{token} {
+      allow create: if isAdmin();
+      allow read: if isAdmin() || resource.data.active == true;
+      allow update, delete: if isAdmin();
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
