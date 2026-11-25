@@ -85,3 +85,12 @@ O QR Code é gerado no navegador por biblioteca carregada via CDN; a página con
 - O código Pix fica na página pública; não é incluído diretamente na mensagem do WhatsApp.
 - A opção **Copiar link Pix** gera e copia o link, sem precisar abrir o WhatsApp.
 - O cache PWA foi atualizado para V1.3.9.
+
+## V1.3.10 — Mensagem WhatsApp somente com link
+
+- Tela de cobrança simplificada: professor seleciona Em dia, Em atraso ou Pix livre.
+- Removidos da tela de cobrança o código Pix, QR Code, campo Pix e botão de copiar Pix.
+- Link público é criado automaticamente quando o professor abre o WhatsApp.
+- Mensagem final orienta o aluno a acessar o link e realizar o pagamento; somente o link é enviado, sem código Pix.
+- Pré-visualização mostra placeholder do link público.
+- Cache PWA atualizado para V1.3.10.
